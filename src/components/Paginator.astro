@@ -1,0 +1,21 @@
+---
+import type { Page } from 'astro';
+const { page } = Astro.props as {page: Page};
+---
+
+<div>
+  {page.url.prev && (
+     <div class="flex justify-center md:justify-start py-6 gap-2">
+    <a class="action__go-to-x group inline-flex items-center h-9 rounded-lg text-sm font-semibold whitespace-nowrap px-3 focus:outline-none focus:ring-2 bg-pink-50 text-pink-600 hover:bg-pink-100 hover:text-pink-700 focus:ring-pink-600 dark:bg-slate-700 dark:text-slate-100 dark:hover:bg-slate-600 dark:hover:text-white dark:focus:ring-slate-500 mt-8" href={page.url.prev} title="Go to Previous">
+      &larr; Prev
+    </a>
+  </div>
+  )}
+  {page.url.next && (
+    <div class="flex justify-center md:justify-end py-6 gap-2">
+    <a class="group inline-flex items-center h-9 rounded-lg text-sm font-semibold whitespace-nowrap px-3 focus:outline-none focus:ring-2 bg-pink-50 text-pink-600 hover:bg-pink-100 hover:text-pink-700 focus:ring-pink-600 dark:bg-slate-700 dark:text-slate-100 dark:hover:bg-slate-600 dark:hover:text-white dark:focus:ring-slate-500 mt-8" href={page.url.next} title="Go to Next">
+      Next &rarr;
+    </a>
+    </div>
+  )}
+</div>

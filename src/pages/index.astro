@@ -1,0 +1,19 @@
+---
+import HomePagination from "../components/HomePagination.astro";
+import Base from "../layouts/Base.astro";
+import Posts from "../layouts/Posts.astro";
+
+import { ghostClient } from '../lib/ghost';
+const posts = await ghostClient.posts
+    .browse({
+        limit: 'all',
+        include:'tags',
+    })
+    .catch((err) => {
+        console.error(err);
+    });
+---
+<Base image={'https://res.cloudinary.com/indridcold/image/upload/v1699275864/BMJ/o7okvxxz1wze9wwnvpeq.png'}>
+  <Posts posts={posts} />
+  <HomePagination />
+</Base>

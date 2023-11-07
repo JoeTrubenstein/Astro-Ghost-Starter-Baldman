@@ -1,0 +1,11 @@
+---
+interface Props {
+  date: string | null |undefined;
+}
+
+const { date } = Astro.props;
+---
+
+<time>
+{date}
+</time>

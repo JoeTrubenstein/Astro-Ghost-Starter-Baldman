@@ -1,0 +1,58 @@
+---
+import { Image } from "astro:assets";
+import config from "@config/config.json";
+import { slugify } from "@utils/slug";
+import type { Post, Tag } from "@ts-ghost/content-api";
+const { posts } = Astro.props;
+---
+<div
+  class="mx-auto grid grid-cols-1 md:grid-cols-2 gap-x-8 gap-y-16 lg:mx-0 lg:max-w-none lg:grid-cols-3"
+>
+  {
+    posts?.slice(0, config.site.pageSize).map((post: Post) => (
+      <article class="flex w-full flex-col items-start ">
+        <div class="flex mb-2">
+        {post.tags?.slice(0, 2).map((tag: Tag) => (
+            <a
+              href={`/tag/${slugify(tag.name)}`}
+              class="font-semibold text-pink-500 dark:text-pink-400 mr-2 hover:text-pink-300"
+            >
+              {'#' + tag.name}
+            </a>
+          ))}
+        </div>
+        <div class="rounded-lg block overflow-hidden mb-4">
+          {post.feature_image && (
+            <figure class="w-auto h-auto md:h-[150px] object-cover">
+              <a href={`/${post.slug}/`}>
+              <Image
+                class="transition duration-300 ease-in-out hover:scale-110"
+                src={post.feature_image}
+                alt={post.feature_image_alt || "a decorative feature image"}
+                width={960}
+                height={480}
+                decoding="async"
+              />
+            </a>
+            </figure>
+          )}
+        </div>
+        <div class="flex items-center gap-x-4 text-xs text-zinc-900 dark:text-white">
+          <time datetime={post.published_at}>{post.published_at?.split("T")[0]}</time>
+
+        </div>
+        <div class="relative">
+          <h2 class="mt-3 text-xl sm:text-lg text-slate-900 font-extrabold tracking-tight dark:text-slate-50 ">
+            <a class="mb-2 text-xl font-semibold tracking-tight text-skin-accent" href={`/${post.slug}/`}>
+              <span class="absolute inset-0" />
+              {post.title}
+            </a>
+          </h2>
+          <p class="mt-5 line-clamp-3 text-md leading-6 text-zinc-600">
+            {post.excerpt}
+          </p>
+        </div>
+      </article>
+    ))
+  }
+</div>

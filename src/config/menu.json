@@ -1,0 +1,24 @@
+{
+  "main": [
+    {
+      "name": "Home",
+      "url": "../../"
+    },
+    {
+      "name": "About",
+      "url": "/about"
+    },
+    {
+      "name": "Curiosities",
+      "url": "/tag/curiosities"
+    },
+    {
+      "name": "Studies",
+      "url": "/tag/learning-japanese"
+    },
+    {
+      "name": "Journals",
+      "url": "/tag/japan-journals"
+    }
+  ]
+}
