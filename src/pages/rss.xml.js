@@ -1,17 +1,27 @@
 import rss from '@astrojs/rss';
-import { getAllPosts } from "../utils/api";
-import config from '../config/config.json';
+import { ghostClient } from '../lib/ghost';
 
-export async function GET(context) {
-  const posts = await getAllPosts();
-  const allPosts = [...posts];
-  return rss({
-    title: config.site.title,
-    description: config.site.description,
-    site: context.site,
-    items: allPosts.map((post) => ({
-      ...post.data,
-      link: `/${post.slug}/`,
-    })),
-  });
-}
+const posts = await ghostClient.posts
+    .browse({
+        limit: 'all',
+        include:'tags',
+    })
+    .catch((err) => {
+        console.error(err);
+    });
+
+    export async function GET(context) {
+      return rss({
+        title: 'Buzz’s Blog',
+        description: 'A humble Astronaut’s guide to the stars',
+        site: context.site,
+        items: posts.map((post) => ({
+          title: post.title,
+          pubDate: post.published_at,
+          description: post.excerpt,
+          // Compute RSS link from post `slug`
+          // This example assumes all posts are rendered as `/blog/[slug]` routes
+          link: `/${post.slug}/`,
+        })),
+      });
+    }
