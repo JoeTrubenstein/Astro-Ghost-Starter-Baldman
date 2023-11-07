@@ -4,11 +4,12 @@ import config from '../config/config.json';
 
 export async function GET(context) {
   const posts = await getAllPosts();
+  const allPosts = [...posts];
   return rss({
     title: config.site.title,
     description: config.site.description,
     site: context.site,
-    items: posts.map((post) => ({
+    items: allPosts.map((post) => ({
       ...post.data,
       link: `/${post.slug}/`,
     })),
