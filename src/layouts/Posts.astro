@@ -23,7 +23,7 @@ const { posts } = Astro.props;
         </div>
         <div class="rounded-lg block overflow-hidden mb-4">
           {post.feature_image && (
-            <figure class="w-auto h-auto md:h-[150px] object-cover">
+            <figure class="w-auto h-auto object-cover">
               <a href={`/${post.slug}/`}>
               <Image
                 class="transition duration-300 ease-in-out hover:scale-110"

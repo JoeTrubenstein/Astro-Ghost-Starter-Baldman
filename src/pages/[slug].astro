@@ -30,7 +30,7 @@ const {post, posts, settings} = Astro.props as Props;
         <div class="mt-4 flex flex-wrap items-center justify-center text-text text-zinc-800 dark:text-zinc-200">
           <div class="mx-3 flex items-center flex-wrap font-medium mt-2">
             <figure>
-              <Image
+              <img
                 alt={post.feature_image_alt || "a decorative feature image"}
                 class="mr-2 h-6 w-6 rounded-full"
                 width={50}
@@ -91,11 +91,4 @@ const {post, posts, settings} = Astro.props as Props;
         }
       </div>
     </article>
-
-    <section class="max-w-screen-lg px-4 mx-auto pb-12 sm:px-6 lg:px-8">
-      <div style="height: 50vh; border-radius: 25px;">
-        <script is:inline src="https://cdn.jsdelivr.net/ghost/signup-form@~0.1/umd/signup-form.min.js" data-background-color="#00DBC6" data-text-color="#FFFFFF" data-button-color="#3700B3" data-button-text-color="#FFFFFF" data-title="Bald Man Japan" data-description="Get content delivered fresh to your inbox" data-icon="https://baldmanjapan.com/content/images/size/w192h192/size/w256h256/2023/10/bmjlogo.png" data-site="https://baldmanjapan.com/"></script>
-      </div>
-    </section>
-
   </Base>
