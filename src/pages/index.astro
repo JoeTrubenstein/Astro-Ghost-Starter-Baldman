@@ -6,7 +6,7 @@ import Posts from "../layouts/Posts.astro";
 import { ghostClient } from '../lib/ghost';
 const posts = await ghostClient.posts
     .browse({
-        limit: 'all',
+        limit: '6',
         include:'tags',
     })
     .catch((err) => {
