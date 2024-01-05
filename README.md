@@ -1,8 +1,6 @@
-# Astro Starter Kit: Basics
+# Astro Ghost Starter: Baldman
 
-based on the 
-
-Based on the open source [ev0 theme](https://github.com/gndx/ev0-astro-theme) and fitted for use with a Headless Ghost instance.
+Based on the [ev0 theme](https://github.com/gndx/ev0-astro-theme) and fitted for use with a Headless Ghost instance.
 
 ```sh
 npm create astro@latest -- --template basics
