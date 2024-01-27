@@ -9,16 +9,8 @@
       "url": "/about"
     },
     {
-      "name": "Curiosities",
-      "url": "/tag/curiosities"
-    },
-    {
-      "name": "Studies",
-      "url": "/tag/learning-japanese"
-    },
-    {
-      "name": "Journals",
-      "url": "/tag/japan-journals"
+      "name": "News",
+      "url": "/tag/news"
     }
   ]
 }

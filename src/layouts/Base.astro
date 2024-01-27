@@ -103,7 +103,7 @@ const { title, meta_title, description, noindex, blogpost, image } = Astro.props
     <main class="mx-auto max-w-screen-lg px-4 py-8 sm:px-6 sm:py-12 lg:px-8">
       <slot />
     </main>
-    {!blogpost && config.features.youtube && <FeaturedVideos />}
+    <!-- {!blogpost && config.features.youtube && <FeaturedVideos />} -->
     <Footer />
     <script>
       // This is a hack to get vite-plugin-pwa to generate a sw.js file.
